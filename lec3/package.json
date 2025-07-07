@@ -1,0 +1,15 @@
+{
+  "name": "@sohinisandhu/lec3",
+  "version": "1.1.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@sohinisandhu/lec3": "^1.1.0",
+    "express": "^5.1.0"
+  }
+}
