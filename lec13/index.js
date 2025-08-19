@@ -1,22 +1,34 @@
-// let userData = document.getElementsByClassName("user");
-function getUserData(URL){
+let userContainer = document.querySelector(".user-container");
+
+function getUsersData(URL){
     fetch(URL)
     .then((res)=>{
-        console.log(res);
-        return res.json()
+        return res.json();
     })
     .then((data)=>{
-        console.log(data);
-        
-        data.forEach(users=>{
-            const p = document.createElement("p")
-            p.textContent = `${users.name}`;
-            document.body.appendChild(p);
+        data.forEach(user => {
+            displayUser(user);
         });
     })
     .catch((err)=>{
         console.log(err);
-    })    
+    });
 }
-let url = `https://jsonplaceholder.typicode.com/users`;
-getUserData(url);
+
+function displayUser(user){
+    let li = document.createElement("li");
+    li.setAttribute("class", "user-item");
+
+    li.innerHTML = `
+        <div class="icon">👤</div>
+        <div class="details">
+            <strong>${user.name}</strong>
+            <p>📧 ${user.email}</p>
+            <p>📍 ${user.address.city}</p>
+        </div>
+    `;
+
+    userContainer.appendChild(li);
+}
+
+getUsersData("https://jsonplaceholder.typicode.com/users");
